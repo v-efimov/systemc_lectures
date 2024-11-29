@@ -10,9 +10,9 @@ void bfm_module::bfm_axim_method() {
       //we are comparing pre-clock value here.
       //pipeline drives if ~down_valid or down_ready
       if (AXIM_valid_port->read() == false || AXIM_ready_port->read() == true) {
-        if (PIPES_port->nb_read(ReadValueFromPIPES) == true) {
+        if (PIPEM_port->nb_read(ReadValueFromPIPEM) == true) {
           AXIM_valid_port->write(true);
-          AXIM_data_port->write(ReadValueFromPIPES);
+          AXIM_data_port->write(ReadValueFromPIPEM);
         }
         else
         {

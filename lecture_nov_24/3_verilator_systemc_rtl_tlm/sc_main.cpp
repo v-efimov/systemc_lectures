@@ -83,8 +83,8 @@ int sc_main(int argc, char* argv[]) {
     bfm.AXIM_data_port(chk_up_data);
     bfm.AXIM_ready_port(chk_up_ready);
 
-    bfm.PIPEM_port(tlm.PIPES_ptr);
-    bfm.PIPES_port(tlm.PIPEM_ptr);
+    bfm.PIPES_port(tlm.PIPES_ptr);
+    bfm.PIPEM_port(tlm.PIPEM_ptr);
 
     // Attach Vtop's signals to this upper model
     top->clk(clk_ch);

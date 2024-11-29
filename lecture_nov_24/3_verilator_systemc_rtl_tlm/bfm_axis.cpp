@@ -12,7 +12,7 @@ void bfm_module::bfm_axis_method() {
       //Write data into expansion REGs if handshake happens but no free place in PIPEM_FIFO
       if (state.read() == BufState::BYPASS) {
           if (AXIS_valid_port->read() == true && AXIS_ready_port->read() == true) {
-            if (PIPEM_port->nb_write(AXIS_data_port->read()) == false) {
+            if (PIPES_port->nb_write(AXIS_data_port->read()) == false) {
                 REG.write(AXIS_data_port->read());
                 state.write(BufState::SKID);
                 AXIS_ready_port->write(false);
@@ -20,7 +20,7 @@ void bfm_module::bfm_axis_method() {
           }
       }
       else if (state.read() == BufState::SKID) {
-          if (PIPEM_port->nb_write(REG) == true) {
+          if (PIPES_port->nb_write(REG) == true) {
              state.write(BufState::BYPASS);
              AXIS_ready_port->write(true);
           }
