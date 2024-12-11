@@ -3,7 +3,6 @@
 
 void tlm_module::tlm_thread() {
   std::uint32_t readinputvalue;
-  int simple_data = 0;
   while (true) {
     readinputvalue = PIPES_ch.read();
     if (readinputvalue % 2) {

@@ -3,7 +3,7 @@
 
 void bfm_module::bfm_axim_method() {
     if (rst_port->read() == true) {
-       AXIM_valid_port->write(true);
+       AXIM_valid_port->write(false);
     }
     else
     {
