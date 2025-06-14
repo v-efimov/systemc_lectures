@@ -16,12 +16,12 @@ module tb
 DUT1
 (       .clk(clk),
         .rst(rst),
-        .gen_down_valid(up_data),
-        .gen_down_data(up_valid),
-        .gen_down_ready(up_tlast),
-        .chk_up_valid(up_tuser),
-        .chk_up_data(up_ready),
-        .chk_up_ready(down_data));
+        .gen_down_valid(),
+        .gen_down_data(),
+        .gen_down_ready(),
+        .chk_up_valid(),
+        .chk_up_data(),
+        .chk_up_ready());
 
   //--------------------------------------------------------------------------
 
