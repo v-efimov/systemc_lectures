@@ -1,3 +1,7 @@
+///////////////////////////////////////////
+//THIS IS TESTED ON SIEMENS QUESTA 2024.3//
+///////////////////////////////////////////
+
 module tb
 # (
   parameter DATA_WIDTH = 32, DELAY_GEN = 0, DELAY_CHK = 0
@@ -8,7 +12,12 @@ module tb
 
   logic clk;
   logic rst;
-
+  wire gen_down_valid;
+  wire [DATA_WIDTH-1:0] gen_down_data;
+  wire gen_down_ready;
+  wire chk_up_valid;
+  wire [DATA_WIDTH-1:0] chk_up_data;
+  wire chk_up_ready;
 
   //--------------------------------------------------------------------------
   // DUT instantiation
@@ -16,12 +25,12 @@ module tb
 DUT1
 (       .clk(clk),
         .rst(rst),
-        .gen_down_valid(),
-        .gen_down_data(),
-        .gen_down_ready(),
-        .chk_up_valid(),
-        .chk_up_data(),
-        .chk_up_ready());
+        .gen_down_valid(gen_down_valid),
+        .gen_down_data(gen_down_data),
+        .gen_down_ready(gen_down_ready),
+        .chk_up_valid(chk_up_valid),
+        .chk_up_data(chk_up_data),
+        .chk_up_ready(chk_up_ready));
 
   //--------------------------------------------------------------------------
 
